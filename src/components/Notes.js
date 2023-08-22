@@ -36,7 +36,7 @@ const Notes = () => {
     (async () => {
       const response = await axios.get('/api/notes');
       setNoteList(
-        response.data.filter((note) => {
+        response?.data?.filter((note) => {
           return !note.pinned;
         })
       );
