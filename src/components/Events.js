@@ -23,11 +23,11 @@ const Events = () => {
     (async () => {
       const response = await axios.get('/api/events');
       let Objs = {};
-      response.data.map((entry) => {
+      response?.data?.map((entry) => {
         Objs[new Date(entry.date).toLocaleDateString()] = entry;
       });
       Objs['added'] = true;
-      setEvents(response.data);
+      setEvents(response?.data);
       setEventsObject(Objs);
     })();
   }, [refresh]);
